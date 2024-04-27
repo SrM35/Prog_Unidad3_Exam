@@ -53,6 +53,9 @@ public class Examen {
 	/**
 	 * Create the application.
 	 */
+	Alumno juan = new Alumno("Juan", "123456", "Juan Alfonso", "Galarza", "Jua_23@gmail.com", 1234567, 10,12,2005);
+	Docente alonso = new Docente("Lic_Al1980", "Al_1980_22", "Alonso", "Pinas cuevas", "Lic_Al19@gmail.com", 5550100, 22,9,1980, "Licenciatura");
+	
 	public Examen() {
 		initialize();
 	}
@@ -155,18 +158,18 @@ public class Examen {
 			public void actionPerformed(ActionEvent e) {
 				boolean userState = false, passState = false;
 				
-				if(textField.getText().length() <= 0) {
+				if(textField.getText().length() <= 0 && textField.getText() != juan.usuario || textField.getText().length() <= 0 && textField.getText() != alonso.usuario) {
 					panel_2.setBackground(Color.red);
-				} else {
+				} else if(textField.getText().length() > 0 && textField.getText().equals(juan.usuario) || textField.getText().length() > 0 && textField.getText().equals(alonso.usuario)) {
 					panel_2.setBackground(new Color(0, 0, 0));
 					userState = true;
 				}
 				
 				String contrasenia = new String(passwordField.getPassword());
 				
-				if (contrasenia.length() <= 0) {
+				if (contrasenia.length() <= 0 && contrasenia != juan.contrasena || contrasenia.length() <= 0 && contrasenia != alonso.contrasena) {
 					panel_2_1.setBackground(Color.red);
-				} else {
+				} else if (contrasenia.length() > 0 && contrasenia.equals(juan.contrasena) || contrasenia.length() > 0 && contrasenia.equals(alonso.contrasena)){
 					panel_2_1.setBackground(new Color(0, 0, 0));
 					passState = true;
 				}
@@ -179,6 +182,12 @@ public class Examen {
 					frame.getContentPane().revalidate();
 					
 					PanelAlumnos(frame);
+				} else{
+					panel_2.setBackground(Color.red);
+					panel_2_1.setBackground(Color.red);
+					JOptionPane.showMessageDialog(null, "Usuario/Datos erroneos, vuelva a intentarlo", "Error #01EH24", 0);
+					panel_2.setBackground(new Color(0, 0, 0));
+					panel_2_1.setBackground(new Color(0, 0, 0));
 				}
 				
 			}
@@ -186,6 +195,7 @@ public class Examen {
 		});
 		panel_1.add(btnNewButton);
 	}
+
 	
 	private void PanelAlumnos(JFrame frame) {
 		JPanel panel = new JPanel();
