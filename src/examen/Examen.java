@@ -9,10 +9,12 @@ import javax.swing.JMenu;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -171,13 +173,12 @@ public class Examen {
 				
 				if(passState && userState) {
 					nombreUsuario = textField.getText();
-					JOptionPane.showMessageDialog(null, "dasdasdasdsad");
+					JOptionPane.showMessageDialog(null, "Se ha iniciado sesion con exito, bienvenido "+nombreUsuario+"!");
 					frame.getContentPane().remove(panel);
-					frame.getContentPane().remove(menuBar);
 					frame.getContentPane().repaint();
 					frame.getContentPane().revalidate();
 					
-					menuInicio(frame);
+					PanelAlumnos(frame);
 				}
 				
 			}
@@ -186,34 +187,102 @@ public class Examen {
 		panel_1.add(btnNewButton);
 	}
 	
-	public void menuInicio(JFrame frame) {
+	private void PanelAlumnos(JFrame frame) {
 		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		panel.setBackground(Color.decode("#1e88e5"));
+		frame.getContentPane().add(panel, BorderLayout.NORTH);
+
+		JLabel lblNewLabel = new JLabel("Hola "+nombreUsuario);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		panel.add(lblNewLabel);
 		
-		JLabel lblNewLabel_2 = new JLabel("Hola " +nombreUsuario+"!");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel_2.setBounds(166, 123, 312, 122);
-		panel.add(lblNewLabel_2);
-		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setForeground(new Color(255, 255, 255));
-		menuBar.setBorderPainted(false);
-		menuBar.setBackground(new Color(0, 0, 128));
-		frame.setJMenuBar(menuBar);
-		
-		JMenu mnNewMenu = new JMenu("Usuario");
-		mnNewMenu.setForeground(new Color(255, 255, 255));
-		menuBar.add(mnNewMenu);
-		
-		JMenu mnNewMenu_1 = new JMenu("Opciones");
-		mnNewMenu_1.setForeground(new Color(255, 255, 255));
-		menuBar.add(mnNewMenu_1);
-		
-		JMenu mnNewMenu_2 = new JMenu("Ayuda");
-		mnNewMenu_2.setForeground(new Color(255, 255, 255));
-		menuBar.add(mnNewMenu_2);
-		
-		
+		JPanel panel_1 = new JPanel();
+		panel_1.setLayout(null);
+		frame.getContentPane().add(panel_1, BorderLayout.CENTER);
+
+		ImageIcon imgdescargar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\descargar.png");
+		ImageIcon imgdescargarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\descargarSelect.png");
+		ImageIcon imgConsultar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\consultar.png");
+		ImageIcon imgConsultarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\consultarSelect.png");
+		ImageIcon imgCrear = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\crear.png");
+		ImageIcon imgCrearSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\crearSelect.png");
+		ImageIcon imgEditar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\editar.png");
+		ImageIcon imgEditarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\editarSelect.png");
+		ImageIcon imgEliminar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\eliminar.png");
+		ImageIcon imgEliminarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\eliminarSelect.png");
+
+
+
+
+		JButton descargarbtn = new JButton();
+		descargarbtn.setContentAreaFilled(false);
+		descargarbtn.setBorderPainted(false);
+		descargarbtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		descargarbtn.setBounds(60, 40, 135, 135);
+		descargarbtn.setIcon(new ImageIcon(imgdescargar.getImage().getScaledInstance(descargarbtn.getWidth(), descargarbtn.getHeight(), Image.SCALE_SMOOTH)));
+		descargarbtn.setRolloverIcon(new ImageIcon(imgdescargarSelect.getImage().getScaledInstance(descargarbtn.getWidth(), descargarbtn.getHeight(), Image.SCALE_SMOOTH)));
+		panel_1.add(descargarbtn);
+
+		JButton consultarbtn = new JButton();
+		consultarbtn.setContentAreaFilled(false);
+		consultarbtn.setBorderPainted(false);
+		consultarbtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		consultarbtn.setBounds(250, 40, 135, 135);
+		consultarbtn.setIcon(new ImageIcon(imgConsultar.getImage().getScaledInstance(consultarbtn.getWidth(), consultarbtn.getHeight(), Image.SCALE_SMOOTH)));
+		consultarbtn.setRolloverIcon(new ImageIcon(imgConsultarSelect.getImage().getScaledInstance(consultarbtn.getWidth(), consultarbtn.getHeight(), Image.SCALE_SMOOTH)));
+		panel_1.add(consultarbtn);
+
+		JButton crearBtn = new JButton();
+		crearBtn.setBorderPainted(false);
+		crearBtn.setContentAreaFilled(false);
+		crearBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		crearBtn.setBounds(440, 40, 135, 135);
+		crearBtn.setIcon(new ImageIcon(imgCrear.getImage().getScaledInstance(crearBtn.getWidth(), crearBtn.getHeight(), Image.SCALE_SMOOTH)));
+		crearBtn.setRolloverIcon(new ImageIcon(imgCrearSelect.getImage().getScaledInstance(crearBtn.getWidth(), crearBtn.getHeight(), Image.SCALE_SMOOTH)));
+		panel_1.add(crearBtn);
+
+		JButton editarBtn = new JButton();
+		editarBtn.setContentAreaFilled(false);
+		editarBtn.setBorderPainted(false);
+		editarBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		editarBtn.setBounds(146, 228, 135, 135);
+		editarBtn.setIcon(new ImageIcon(imgEditar.getImage().getScaledInstance(editarBtn.getWidth(), editarBtn.getHeight(), Image.SCALE_SMOOTH)));
+		editarBtn.setRolloverIcon(new ImageIcon(imgEditarSelect.getImage().getScaledInstance(editarBtn.getWidth(), editarBtn.getHeight(), Image.SCALE_SMOOTH)));
+		panel_1.add(editarBtn);
+
+		JButton eliminarBtn = new JButton("");
+		eliminarBtn.setContentAreaFilled(false);
+		eliminarBtn.setBorderPainted(false);
+		eliminarBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		eliminarBtn.setBounds(351, 228, 135, 135);
+		eliminarBtn.setIcon(new ImageIcon(imgEliminar.getImage().getScaledInstance(eliminarBtn.getWidth(), eliminarBtn.getHeight(), Image.SCALE_SMOOTH)));
+		eliminarBtn.setRolloverIcon(new ImageIcon(imgEliminarSelect.getImage().getScaledInstance(eliminarBtn.getWidth(), eliminarBtn.getHeight(), Image.SCALE_SMOOTH)));
+		panel_1.add(eliminarBtn);
+
+		JLabel descargarLabel = new JLabel("Descargar Información");
+		descargarLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		descargarLabel.setBounds(60, 185, 135, 14);
+		panel_1.add(descargarLabel);
+
+		JLabel consultarLabel = new JLabel("Consultar");
+		consultarLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		consultarLabel.setBounds(250, 185, 135, 14);
+		panel_1.add(consultarLabel);
+
+		JLabel crearLabel = new JLabel("Crear");
+		crearLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		crearLabel.setBounds(440, 186, 135, 14);
+		panel_1.add(crearLabel);
+
+		JLabel editarLabel = new JLabel("Editar");
+		editarLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		editarLabel.setBounds(146, 374, 135, 14);
+		panel_1.add(editarLabel);
+
+		JLabel eliminarLabel = new JLabel("Eliminar");
+		eliminarLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		eliminarLabel.setBounds(351, 374, 135, 14);
+		panel_1.add(eliminarLabel);
 	}
 }
