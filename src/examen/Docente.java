@@ -1,12 +1,10 @@
 package examen;
 
 public class Docente extends Alumno{
-	String nivelEstudios;
 	
-	public Docente(String usuario, String contrasena, String nombres, String apellidos, String correo, long teléfono,
+	public Docente(String usuario, String contrasena, String nombres, String apellidoP, String apellidoM, String correo, long teléfono,
 			int dia, int mes, int anio, String nivelEstudios) {
-		super(usuario, contrasena, nombres, apellidos, correo, teléfono, dia, mes, anio);
-		this.nivelEstudios = nivelEstudios;
+		super(usuario, contrasena, nombres, apellidoP, apellidoM, correo, teléfono, dia, mes, anio, nivelEstudios);
 	}
 	
 	public String getUsuario() {
@@ -33,12 +31,20 @@ public class Docente extends Alumno{
 		Nombres = nombres;
 	}
 
-	public String getApellidos() {
-		return Apellidos;
+	public String getApellidoP() {
+		return apellidoP;
 	}
 
-	public void setApellidos(String apellidos) {
-		Apellidos = apellidos;
+	public void setApellidoP(String apellidoP) {
+		this.apellidoP = apellidoP;
+	}
+
+	public String getApellidoM() {
+		return apellidoM;
+	}
+
+	public void setApellidoM(String apellidoM) {
+		this.apellidoM = apellidoM;
 	}
 
 	public String getCorreo() {

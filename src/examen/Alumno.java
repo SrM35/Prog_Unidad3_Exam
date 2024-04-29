@@ -4,25 +4,31 @@ public class Alumno {
 	String usuario;
 	String contrasena;
 	String Nombres;
-	String Apellidos;
+	String apellidoP;
+	String apellidoM;
 	String Correo;
 	long Teléfono;
+	
 	// fecha de nacimiento
 	int dia;
 	int mes;
 	int anio;
 	
-	public Alumno(String usuario, String contrasena, String nombres, String apellidos, String correo, long teléfono,
-			int dia, int mes, int anio) {
+	String nivelEstudios;
+	
+	public Alumno(String usuario, String contrasena, String nombres, String apellidoP, String apellidoM, String correo, long teléfono,
+			int dia, int mes, int anio, String nivelEstudios) {
 		this.usuario = usuario;
 		this.contrasena = contrasena;
-		Nombres = nombres;
-		Apellidos = apellidos;
+		this.Nombres = nombres;
+		this.apellidoP = apellidoP;
+		this.apellidoM = apellidoM;
 		Correo = correo;
 		Teléfono = teléfono;
 		this.dia = dia;
 		this.mes = mes;
 		this.anio = anio;
+		this.nivelEstudios = nivelEstudios;
 	}
 
 	public String getUsuario() {
@@ -49,12 +55,20 @@ public class Alumno {
 		Nombres = nombres;
 	}
 
-	public String getApellidos() {
-		return Apellidos;
+	public String getApellidoP() {
+		return apellidoP;
 	}
 
-	public void setApellidos(String apellidos) {
-		Apellidos = apellidos;
+	public void setApellidoP(String apellidoP) {
+		this.apellidoP = apellidoP;
+	}
+
+	public String getApellidoM() {
+		return apellidoM;
+	}
+
+	public void setApellidoM(String apellidoM) {
+		this.apellidoM = apellidoM;
 	}
 
 	public String getCorreo() {
@@ -96,7 +110,14 @@ public class Alumno {
 	public void setAnio(int anio) {
 		this.anio = anio;
 	}
-	
-	
 
+	public String getNivelEstudios() {
+		return nivelEstudios;
+	}
+
+	public void setNivelEstudios(String nivelEstudios) {
+		this.nivelEstudios = nivelEstudios;
+	}
+
+	
 }
