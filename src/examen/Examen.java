@@ -26,6 +26,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import javax.swing.JMenuItem;
 
 public class Examen {
 
@@ -34,6 +35,7 @@ public class Examen {
 	private JPasswordField passwordField;
 	
 	String nombreUsuario;
+	boolean sesionIniciada;
 	/**
 	 * Launch the application.
 	 */
@@ -81,6 +83,33 @@ public class Examen {
 		JMenu mnNewMenu = new JMenu("Usuario");
 		mnNewMenu.setForeground(new Color(255, 255, 255));
 		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Cerrar");
+		mntmNewMenuItem.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(sesionIniciada) {
+					
+					int respuesta = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cerrar sesion?");
+					
+					if(respuesta == JOptionPane.YES_OPTION) {
+						nombreUsuario = "Usuario";
+						sesionIniciada = false;
+						JOptionPane.showMessageDialog(null, "Se ha cerrado sesion con exito, adios!");
+						frame.getContentPane().removeAll();
+						frame.getContentPane().repaint();
+						frame.getContentPane().revalidate();
+						login(frame);
+					}
+					
+				} else {
+					JOptionPane.showMessageDialog(null, "No se puede cerrar sesion, porque no se ha iniciado sesion");
+				}
+			}
+			
+		});
+		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenu mnNewMenu_1 = new JMenu("Opciones");
 		mnNewMenu_1.setForeground(new Color(255, 255, 255));
@@ -176,8 +205,9 @@ public class Examen {
 				
 				if(passState && userState) {
 					nombreUsuario = textField.getText();
+					sesionIniciada = true;
 					JOptionPane.showMessageDialog(null, "Se ha iniciado sesion con exito, bienvenido "+nombreUsuario+"!");
-					frame.getContentPane().remove(panel);
+					frame.getContentPane().removeAll();
 					frame.getContentPane().repaint();
 					frame.getContentPane().revalidate();
 					
