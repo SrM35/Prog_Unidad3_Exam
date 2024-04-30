@@ -64,6 +64,7 @@ public class Examen {
 	/**
 	 * Create the application.
 	 */
+	
 	Alumno juan = new Alumno("Juan", "123456", "Juan Alfonso", "Sanchez", "Galarza", "Jua_23@gmail.com", 1234567, 10,12,2005, "Bachillerato");
 	Docente alonso = new Docente("Lic_Al1980", "Al_1980_22", "Alonso", "Piñas", "Cuevas", "Lic_Al19@gmail.com", 5550100, 22,9,1980, "Licenciatura");
 	
@@ -198,11 +199,6 @@ public class Examen {
 		JMenu menu = new JMenu("Opciones");
 		ImageIcon iconOpciones = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\opciones.png");
 		menu.setIcon(new ImageIcon(iconOpciones.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH)));
-		/*
-		JMenu menu2 = new JMenu("Usuario");
-		ImageIcon iconAyuda = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\avatar.png");
-		menu2.setIcon(new ImageIcon(iconAyuda.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH)));
-		*/
 		
 		ImageIcon imgAlumno = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\alumno.png");
 		JMenuItem eleccion = new JMenuItem("Creditos", new ImageIcon(imgAlumno.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH)));
@@ -294,18 +290,9 @@ public class Examen {
 			
 		});
 		regresar.setIcon(new ImageIcon(iconRegresar.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH))); 
-		/*
-		ImageIcon imgDocente = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\docente.png");
-		JMenuItem seleccion1 = new JMenuItem("Docentes", new ImageIcon(imgDocente.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
-		menu2.add(seleccion1);
 		
-		ImageIcon imgAlumnos = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\alumno.png");
-		JMenuItem seleccion2 = new JMenuItem("Alumnos", new ImageIcon(imgAlumnos.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
-		menu2.add(seleccion2);
-*/
 		barra.add(regresar);
 		barra.add(menu);
-		//barra.add(menu2);
 		barra.updateUI();
 		
 		JPanel panel = new JPanel();
@@ -431,7 +418,6 @@ public class Examen {
 					frame.getContentPane().repaint();
 					frame.getContentPane().revalidate();
 	
-					//Aquí podrías mandar al usuario al login nuevamente para que inicie sesión otra vez si quieres si no no
 				}
 			}
 		});
@@ -704,40 +690,7 @@ public class Examen {
 		img_user.setBounds(10, 11, 196, 220);
 		img_user.setIcon(new ImageIcon(imgUsuario.getImage().getScaledInstance(img_user.getWidth(), img_user.getHeight(), Image.SCALE_SMOOTH)));
 		panel_7.add(img_user);
-		/*
-		ImageIcon imgEliminar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\borrar.png");
-		ImageIcon imgEliminarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\borrarSelect.png");
-		JButton borrarBtn = new JButton();
-		borrarBtn.setContentAreaFilled(false);
-		borrarBtn.setBorderPainted(false);
-		borrarBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		borrarBtn.setBounds(131, 180, 59, 42);
-		borrarBtn.setIcon(new ImageIcon(imgEliminar.getImage().getScaledInstance(borrarBtn.getWidth(), borrarBtn.getHeight(), Image.SCALE_SMOOTH)));
-		borrarBtn.setRolloverIcon(new ImageIcon(imgEliminarSelect.getImage().getScaledInstance(borrarBtn.getWidth(), borrarBtn.getHeight(), Image.SCALE_SMOOTH)));
-		panel_7.add(borrarBtn);
 		
-		
-		ImageIcon imgEditar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\cambiarFoto.png");
-		ImageIcon imgEditarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\cambiarFotoSelect.png");
-		JButton editarBtn = new JButton();
-		editarBtn.setContentAreaFilled(false);
-		editarBtn.setBorderPainted(false);
-		editarBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		editarBtn.setBounds(20, 180, 59, 50);
-		editarBtn.setIcon(new ImageIcon(imgEditar.getImage().getScaledInstance(editarBtn.getWidth(), editarBtn.getHeight(), Image.SCALE_SMOOTH)));
-		editarBtn.setRolloverIcon(new ImageIcon(imgEditarSelect.getImage().getScaledInstance(editarBtn.getWidth(), editarBtn.getHeight(), Image.SCALE_SMOOTH)));
-		panel_7.add(editarBtn);
-		
-		JLabel lblNewLabel_4 = new JLabel("Cambiar foto");
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setBounds(10, 222, 76, 14);
-		panel_7.add(lblNewLabel_4);
-		
-		JLabel lblNewLabel_4_1 = new JLabel("Borrar foto");
-		lblNewLabel_4_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4_1.setBounds(121, 222, 76, 14);
-		panel_7.add(lblNewLabel_4_1);
-		*/
 		JPanel panel_2_1 = new JPanel();
 		panel_2_1.setBackground(Color.decode("#1e88e5"));
 		panel_2_1.setBounds(23, 11, 341, 273);
@@ -1457,8 +1410,6 @@ public class Examen {
 		panel_2_1.add(panel_3, BorderLayout.CENTER);
 		panel_3.setLayout(null);
 		panel_3.setBackground(new Color(151, 203, 255));
-		
-		
 		
 		JLabel nombre_etiqueta = new JLabel("Nombres:");
 		nombre_etiqueta.setBounds(15, 25, 56, 14);
