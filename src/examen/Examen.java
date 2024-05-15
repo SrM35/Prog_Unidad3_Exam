@@ -14,9 +14,7 @@ import java.awt.Cursor;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,8 +23,6 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
@@ -35,19 +31,14 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JMenuItem;
-import com.toedter.calendar.JDateChooser;
 
 public class Examen {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JPasswordField passwordField;
 	
 	String nombreUsuario;
 	boolean sesionIniciada;
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -60,10 +51,6 @@ public class Examen {
 			}
 		});
 	}
-
-	/**
-	 * Create the application.
-	 */
 	
 	Alumno juan = new Alumno("Juan", "123456", "Juan Alfonso", "Sanchez", "Galarza", "Jua_23@gmail.com", 1234567, 10,12,2005, "Bachillerato");
 	Docente alonso = new Docente("Lic_Al1980", "Al_1980_22", "Alonso", "Piñas", "Cuevas", "Lic_Al19@gmail.com", 5550100, 22,9,1980, "Licenciatura");
@@ -72,9 +59,6 @@ public class Examen {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
@@ -85,7 +69,8 @@ public class Examen {
 	}
 	
 	public void login(JFrame frame) {
-		ImagePanel panel = new ImagePanel();
+	
+		JLabel panel = new JLabel(new ImageIcon(getClass().getResource("blue.png")));
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
@@ -197,10 +182,10 @@ public class Examen {
 		frame.setJMenuBar(barra);
 		
 		JMenu menu = new JMenu("Opciones");
-		ImageIcon iconOpciones = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\opciones.png");
+		ImageIcon iconOpciones = new ImageIcon(getClass().getResource("opciones.png"));
 		menu.setIcon(new ImageIcon(iconOpciones.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH)));
 		
-		ImageIcon imgAlumno = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\alumno.png");
+		ImageIcon imgAlumno = new ImageIcon(getClass().getResource("alumno.png"));
 		JMenuItem eleccion = new JMenuItem("Creditos", new ImageIcon(imgAlumno.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH)));
 		eleccion.addActionListener(new ActionListener(){
 
@@ -213,7 +198,7 @@ public class Examen {
 		});
 		menu.add(eleccion);
 		
-		ImageIcon imgEliminar2 = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\cerrar-sesion.png");
+		ImageIcon imgEliminar2 = new ImageIcon(getClass().getResource("cerrar-sesion.png"));
 		JMenuItem eleccion1 = new JMenuItem("Cerrar sesión", new ImageIcon(imgEliminar2.getImage().getScaledInstance(16, 16, Image.SCALE_SMOOTH)));
 		eleccion1.addActionListener(new ActionListener(){
 
@@ -245,7 +230,7 @@ public class Examen {
 		menu.add(eleccion1);
 
 		JMenu regresar = new JMenu("Regresar"); 
-		ImageIcon iconRegresar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\anterior.png");
+		ImageIcon iconRegresar = new ImageIcon(getClass().getResource("anterior.png"));
 		regresar.setEnabled(false);
 		regresar.setVisible(false);
 		regresar.addMouseListener(new MouseListener() {
@@ -310,16 +295,16 @@ public class Examen {
 		panel_1.setLayout(null);
 		frame.getContentPane().add(panel_1, BorderLayout.CENTER);
 
-		ImageIcon imgdescargar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\descargar.png");
-		ImageIcon imgdescargarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\descargarSelect.png");
-		ImageIcon imgConsultar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\consultar.png");
-		ImageIcon imgConsultarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\consultarSelect.png");
-		ImageIcon imgCrear = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\crear.png");
-		ImageIcon imgCrearSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\crearSelect.png");
-		ImageIcon imgEditar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\editar.png");
-		ImageIcon imgEditarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\editarSelect.png");
-		ImageIcon imgEliminar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\eliminar.png");
-		ImageIcon imgEliminarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\eliminarSelect.png");
+		ImageIcon imgdescargar = new ImageIcon(getClass().getResource("descargar.png"));
+		ImageIcon imgdescargarSelect = new ImageIcon(getClass().getResource("descargarSelect.png"));
+		ImageIcon imgConsultar = new ImageIcon(getClass().getResource("consultar.png"));
+		ImageIcon imgConsultarSelect = new ImageIcon(getClass().getResource("consultarSelect.png"));
+		ImageIcon imgCrear = new ImageIcon(getClass().getResource("crear.png"));
+		ImageIcon imgCrearSelect = new ImageIcon(getClass().getResource("crearSelect.png"));
+		ImageIcon imgEditar = new ImageIcon(getClass().getResource("editar.png"));
+		ImageIcon imgEditarSelect = new ImageIcon(getClass().getResource("editarSelect.png"));
+		ImageIcon imgEliminar = new ImageIcon(getClass().getResource("eliminar.png"));
+		ImageIcon imgEliminarSelect = new ImageIcon(getClass().getResource("eliminarSelect.png"));
 
 		JButton descargarbtn = new JButton();
 		descargarbtn.addMouseListener(new MouseAdapter() {
@@ -490,7 +475,7 @@ public class Examen {
 		panel_7.setBackground(new Color(151, 203, 255));
 		panel_6.add(panel_7, BorderLayout.CENTER);
 		
-		ImageIcon imgUsuario = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\fotoEstudiante.png");
+		ImageIcon imgUsuario = new ImageIcon(getClass().getResource("fotoEstudiante.png"));
 		JLabel img_user = new JLabel();
 		img_user.setBounds(12, 11, 192, 223);
 		img_user.setIcon(new ImageIcon(imgUsuario.getImage().getScaledInstance(img_user.getWidth(), img_user.getHeight(), Image.SCALE_SMOOTH)));
@@ -685,7 +670,7 @@ public class Examen {
 		panel_7.setBackground(new Color(151, 203, 255));
 		panel_6.add(panel_7, BorderLayout.CENTER);
 		
-		ImageIcon imgUsuario = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\maestro.png");
+		ImageIcon imgUsuario = new ImageIcon(getClass().getResource("maestro.png"));
 		JLabel img_user = new JLabel();
 		img_user.setBounds(10, 11, 196, 220);
 		img_user.setIcon(new ImageIcon(imgUsuario.getImage().getScaledInstance(img_user.getWidth(), img_user.getHeight(), Image.SCALE_SMOOTH)));
@@ -965,14 +950,14 @@ public class Examen {
 		panel_7.setBackground(new Color(151, 203, 255));
 		panel_6.add(panel_7, BorderLayout.CENTER);
 		
-		ImageIcon imgUsuario = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\fotoEstudiante.png");
+		ImageIcon imgUsuario = new ImageIcon(getClass().getResource("fotoEstudiante.png"));
 		JLabel img_user = new JLabel();
 		img_user.setBounds(32, 11, 147, 167);
 		img_user.setIcon(new ImageIcon(imgUsuario.getImage().getScaledInstance(img_user.getWidth(), img_user.getHeight(), Image.SCALE_SMOOTH)));
 		panel_7.add(img_user);
 		
-		ImageIcon imgEliminar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\borrar.png");
-		ImageIcon imgEliminarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\borrarSelect.png");
+		ImageIcon imgEliminar = new ImageIcon(getClass().getResource("borrar.png"));
+		ImageIcon imgEliminarSelect = new ImageIcon(getClass().getResource("borrarSelect.png"));
 		JButton borrarBtn = new JButton();
 		borrarBtn.setContentAreaFilled(false);
 		borrarBtn.setBorderPainted(false);
@@ -983,8 +968,8 @@ public class Examen {
 		panel_7.add(borrarBtn);
 		
 		
-		ImageIcon imgEditar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\cambiarFoto.png");
-		ImageIcon imgEditarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\cambiarFotoSelect.png");
+		ImageIcon imgEditar = new ImageIcon(getClass().getResource("cambiarFoto.png"));
+		ImageIcon imgEditarSelect = new ImageIcon(getClass().getResource("cambiarFotoSelect.png"));
 		JButton editarBtn = new JButton();
 		editarBtn.setContentAreaFilled(false);
 		editarBtn.setBorderPainted(false);
@@ -1195,8 +1180,8 @@ public class Examen {
 		panel_3.add(textField_10);
 		textField_10.setColumns(10);
 		
-		ImageIcon imgGuardar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\guardar.png");
-		ImageIcon imgGuardarSelected = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\guardarSelected.png");
+		ImageIcon imgGuardar = new ImageIcon(getClass().getResource("guardar.png"));
+		ImageIcon imgGuardarSelected = new ImageIcon(getClass().getResource("guardarSelected.png"));
 		JButton guardarbtn = new JButton();
 		guardarbtn.setContentAreaFilled(false);
 		guardarbtn.setBorderPainted(false);
@@ -1356,15 +1341,15 @@ public class Examen {
 		panel_7.setBackground(new Color(151, 203, 255));
 		panel_6.add(panel_7, BorderLayout.CENTER);
 		
-		ImageIcon imgUsuario = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\maestro.png");
+		ImageIcon imgUsuario = new ImageIcon(getClass().getResource("maestro.png"));
 		
 		JLabel img_user = new JLabel();
 		img_user.setBounds(32, 11, 147, 167);
 		img_user.setIcon(new ImageIcon(imgUsuario.getImage().getScaledInstance(img_user.getWidth(), img_user.getHeight(), Image.SCALE_SMOOTH)));
 		panel_7.add(img_user);
 		
-		ImageIcon imgEliminar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\borrar.png");
-		ImageIcon imgEliminarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\borrarSelect.png");
+		ImageIcon imgEliminar = new ImageIcon(getClass().getResource("borrar.png"));
+		ImageIcon imgEliminarSelect = new ImageIcon(getClass().getResource("borrarSelect.png"));
 		JButton borrarBtn = new JButton();
 		borrarBtn.setContentAreaFilled(false);
 		borrarBtn.setBorderPainted(false);
@@ -1374,8 +1359,8 @@ public class Examen {
 		borrarBtn.setRolloverIcon(new ImageIcon(imgEliminarSelect.getImage().getScaledInstance(borrarBtn.getWidth(), borrarBtn.getHeight(), Image.SCALE_SMOOTH)));
 		panel_7.add(borrarBtn);
 		
-		ImageIcon imgEditar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\cambiarFoto.png");
-		ImageIcon imgEditarSelect = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\cambiarFotoSelect.png");
+		ImageIcon imgEditar = new ImageIcon(getClass().getResource("cambiarFoto.png"));
+		ImageIcon imgEditarSelect = new ImageIcon(getClass().getResource("cambiarFotoSelect.png"));
 		JButton editarBtn = new JButton();
 		editarBtn.setContentAreaFilled(false);
 		editarBtn.setBorderPainted(false);
@@ -1586,8 +1571,8 @@ public class Examen {
 		panel_3.add(textField_10);
 		textField_10.setColumns(10);
 		
-		ImageIcon imgGuardar = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\guardar.png");
-		ImageIcon imgGuardarSelected = new ImageIcon("C:\\Users\\inghe\\eclipse-workspace\\EXAMEN_UNIDAD3_Prog\\src\\examen\\guardarSelected.png");
+		ImageIcon imgGuardar = new ImageIcon(getClass().getResource("guardar.png"));
+		ImageIcon imgGuardarSelected = new ImageIcon(getClass().getResource("guardarSelected.png"));
 		JButton guardarbtn = new JButton();
 		guardarbtn.setContentAreaFilled(false);
 		guardarbtn.setBorderPainted(false);
