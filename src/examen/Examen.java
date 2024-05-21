@@ -36,6 +36,8 @@ public class Examen {
 
 	private JFrame frame;
 	
+	//Hecho por Jesús Javier Rojo Martínez y Michael de Jesús Obeso Sanchez
+	
 	String nombreUsuario;
 	boolean sesionIniciada;
 
